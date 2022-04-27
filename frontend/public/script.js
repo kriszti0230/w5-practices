@@ -1,25 +1,25 @@
 
-const beerCardComponent = function (name, company, type) {
-    console.log(company);
+const moviesCardComponent = function (title, sub, text) {
+    console.log(movies);
     return `
         <div class="card">
-            <div class="beerName">${name}</div>
-            <div class="beerCompany">${company}</div>
-            <div class="beerType">${type}</div>
+            <div class="movieTitle">${title}</div>
+            <div class="movieSub">${sub}</div>
+            <div class="movieText">${text}</div>
         </div>
     `
 }
 
 
     //const beerCardComponent : Ez a komponens(vázlat), ezt kell legelőször megtervezni. Ebből kell összerakni a feladatot
-    //10 db sört akarok kirenderelni. A fv-nyel teszem be a html-be. A return azért kell, h beküldjük.
+    //10 db sört akarok kirenderelni. A fv-nyel teszem be a html-be. A return azért kell, h visszatérjünk az egyes cardokkal.
     //ha ez nem függvény lenne, hanem sima string, akkor nemlehetne beletenni változó értékekekt paraméterként.
     //a fv. paramétereinek (name, company, type)
     //ezt külön kezeljük, hogy újra fel tudjuk használni 10-szer 10 új adattal
 
 
-    const beerTitleComponent = `
-              <h1>Beers</h1>
+    const movieTitleComponent = `
+              <h1>Movies</h1>
                   `;
 
     //alább beerTitleComponent néven létrehoztunk egy változót, amit fentebb határoztunk meg.
@@ -27,16 +27,17 @@ const beerCardComponent = function (name, company, type) {
 
     const loadEvent = function () {
         const rootElement = document.getElementById("root");
+        //ez azért kell, hogy a HTML-t és a js-t összekössük.
         console.log(rootElement);
-        rootElement.insertAdjacentHTML ("beforeend", beerTitleComponent)
+        rootElement.insertAdjacentHTML ("beforeend", movieTitleComponent)
        
-        console.log(beers.cards);
-        console.log(beers.logo);
+        console.log(movies.cards);
+        console.log(movies.logo);
 
-        for (const beer of beers.cards) {
-            console.log(beer)
+        for (const movie of movies.cards) {
+            console.log(movie)
            // console.log(beers.cards[0].title) - ehelyett hoztuk létre a beer iteratort,ami megváltoztathatja  a beerek számát
-            rootElement.insertAdjacentHTML("beforeend", beerCardComponent(beer.title, beer.sub, beer.text))
+            rootElement.insertAdjacentHTML("beforeend", moviesCardComponent(movie.title, movie.sub, movie.text))
 
         }
 
